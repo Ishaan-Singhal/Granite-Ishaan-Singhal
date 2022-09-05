@@ -31,4 +31,8 @@ class Task < ApplicationRecord
         errors.add(:slug, t("task.slug.immutable"))
       end
     end
+
+    def set_title
+      self.title = "Pay electricity bill"
+    end
 end
