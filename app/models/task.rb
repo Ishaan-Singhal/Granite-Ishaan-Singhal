@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  RESTRICTED_ATTRIBUTES = %i[title task_owner_id assigned_user_id]
+  enum progress: { pending: "pending", completed: "completed" }
+
   validates :title, presence: true, length: { maximum: 125 }
   validates :slug, uniqueness: true
   validate :slug_not_changed
